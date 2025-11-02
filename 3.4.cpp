@@ -1,5 +1,17 @@
-#include <iostream>                                                                    #include <vector>                                                                      #include <stdexcept>                                                                   class IP {                                                                                     std::vector<int> ip;                                                                   public:                                                                                IP(std::vector<int> a = {0, 0, 0, 0}) {                                                        if (a.size() != 4) {                                                                           throw std::invalid_argument("IP должен содержать 4 элемента!");                }                                                                                      for (int i = 0; i < 4; i++) {                                                                  if ((a[i] < 0) or (a[i] > 255)) {                                                              throw std::invalid_argument("Каждый элемент IP должен быть числом от 0 до 255!");
-                        }
+#include <iostream>
+#include <vector>
+#include <stdexcept>
+class IP {
+       std::vector<int> ip;
+       public:
+       IP(std::vector<int> a = {0, 0, 0, 0}) {
+               if (a.size() != 4) {
+                      throw std::invalid_argument("IP должен содержать 4 элемента!");
+               }
+               for (int i = 0; i < 4; i++) {
+                       if ((a[i] < 0) or (a[i] > 255)) {
+                                throw std::invalid_argument("Каждый элемент IP должен быть числом от 0 до 255!");
+                       }
                 }
                 ip = a;
         }
