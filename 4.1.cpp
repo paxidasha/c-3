@@ -89,7 +89,7 @@ int main() {
           throw std::runtime_error("Неправильный формат введенного числа!");
         }
         for (int i = 1; i < (int)s.size(); i++) {
-          if (std::isdigit(s[i]) == 0) {
+          if (((s[i] != '.') and (std::isdigit(s[i]) == 0)) or ((i == (int)s.size() - 1) and (s[i] == '.'))) {
             throw std::runtime_error("Неправильный формат введенного числа!");
           }
         }
@@ -108,7 +108,7 @@ int main() {
       throw std::runtime_error("Неправильный формат введенного числа!");
     }
     for (int i = 1; i < (int)s.size(); i++) {
-      if (std::isdigit(s[i]) == 0) {
+      if (((s[i] != '.') and (std::isdigit(s[i]) == 0)) or ((i == (int)s.size() - 1) and (s[i] == '.'))) {
         throw std::runtime_error("Неправильный формат введенного числа!");
       }
     }
