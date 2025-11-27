@@ -57,8 +57,8 @@ public:
         while (i < s.size()) {
           assert(s[i] >= '0' && s[i] <= '9' && "Недопустимый символ!");
           num.push_back(s[i] - '0');
-	  prec++;
-	  i++;
+	      prec++;
+	      i++;
         }
       }
     }
@@ -133,20 +133,20 @@ public:
     if (l1 >= l2) {
       for (int i = l2 - 1; i >= 0; i--) {
         uint8_t dig = shift + c1.num[l1 - l2 + i] + c2.num[i];
-	sum.num.push_back(dig % 10);
-	shift = dig / 10;
-	len_int++;
+	    sum.num.push_back(dig % 10);
+	    shift = dig / 10;
+	    len_int++;
       }
       for (int i = l1 - l2 - 1; i >= 0; i--) {
         uint8_t dig = shift + c1.num[i];
-	sum.num.push_back(dig % 10);
+	    sum.num.push_back(dig % 10);
         shift = dig / 10;
-	len_int++;
+	    len_int++;
       }
       while (shift > 0) {
         sum.num.push_back(shift % 10);
-	shift = shift / 10;
-	len_int++;
+	    shift = shift / 10;
+	    len_int++;
       }
       assert(len_int <= 10 && "Выход за допустимые границы!");
     } else {
@@ -201,7 +201,7 @@ public:
     } else {
       if (c1 < c2) {
         dif.sign = -1;
-	std::swap(c1, c2);
+	    std::swap(c1, c2);
       }
     }
     while (c1.prec != k) {
@@ -218,27 +218,27 @@ public:
       int delta = c1.num[j] - c2.num[i] - shift;
       if (delta >= 0) {
         dif.num.push_back((uint8_t)delta);
-	shift = 0;
+	    shift = 0;
       } else {
         dif.num.push_back((uint8_t)(10 + delta));
-	shift = 1;
+	    shift = 1;
       }
     }
     for (int i = c1.num.size() - c2.num.size() - 1; i >= 0; i--) {
       uint8_t delta = c1.num[i] - shift;
       if (delta >= 0) {
         dif.num.push_back(delta);
-	shift = 0;
+	    shift = 0;
       } else {
         dif.num.push_back(10 + delta);
-	shift = 1;
+	    shift = 1;
       }
     }
     int i = dif.num.size() - 1;
     while (true) {
       if ((dif.num[i] == 0) and (i > k)) {
         dif.num.pop_back();
-	i--;
+	    i--;
       } else {
         break;
       }
@@ -375,7 +375,7 @@ public:
     for (int i = a.num.size() - 1; i >= a.num.size() - a.prec; i--) {
       if (a.num[i] != 0) {
         ceil_a++;
-	break;
+	    break;
       }
     }
     for (int i = b.num.size() - 1; i >= b.num.size() - b.prec; i--) {
