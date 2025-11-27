@@ -182,7 +182,8 @@ public:
   }
   BCD operator-(const BCD& other) const {
     int k = std::max(prec, other.prec);
-    BCD c1 = *this;                                                                        BCD c2 = other;
+    BCD c1 = *this;
+	BCD c2 = other;
     BCD dif;
     if (c1.sign > c2.sign) {
       return c1 + (-c2);
